@@ -4,6 +4,8 @@
 **Student:** Joshua Yao  
 **Semester:** Spring 2026
 
+REPO LINK: https://github.com/josyao1/ce356-dijkstra-project
+
 ## Overview
 
 Formal specification and verification of Dijkstra's self-stabilization algorithm (EWD391) using TLA+ and the TLC model checker. The algorithm guarantees that a ring of N+1 processes converges to a legitimate state (exactly one privileged process) from any arbitrary starting configuration.
