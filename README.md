@@ -1,24 +1,30 @@
-# CE356 Dijkstra Self-Stabilization Project
+# CE356 Term Project: Dijkstra's Self-Stabilization Algorithm
 
-**GitHub:** https://github.com/josyao1/ce356-dijkstra-project
+**Course:** CE 356: Intro to Formal Spec and Verification, Northwestern University  
+**Student:** Joshua Yao  
+**Semester:** Spring 2026
 
-Formal verification of Dijkstra's self-stabilizing token ring algorithm using TLA+.
+REPO LINK: https://github.com/josyao1/ce356-dijkstra-project
 
 ## Overview
 
-This project models and verifies Dijkstra's classic self-stabilization algorithm, where a ring of N+1 processes eventually reaches a legitimate state (exactly one privileged process) regardless of the initial state.
+Formal specification and verification of Dijkstra's self-stabilization algorithm (EWD391) using TLA+ and the TLC model checker. The algorithm guarantees that a ring of N+1 processes converges to a legitimate state (exactly one privileged process) from any arbitrary starting configuration.
 
-## Files
+## Repo Structure
 
-- `Dijkstra.tla` — TLA+ specification of the algorithm
-- `Dijkstra.toolbox/` — TLC model checker configuration and model snapshots
-- `reports/` — Midterm progress report
+- `Dijkstra.tla`: TLA+ specification of the algorithm
+- `Dijkstra.toolbox/`: TLA+ Toolbox project and TLC model configuration
+- `reports/`: Midterm and final reports
 
-## Running the Model
+## TLC Verification Results (Base Spec)
 
-Open `Dijkstra.tla` in the [TLA+ Toolbox](https://lamport.azurewebsites.net/tla/toolbox.html) and run `Model_1` with the TLC model checker. Configure constants `N` (number of non-root processes) and `K` (number of token values, must satisfy K > N).
+- **N=3, K=4**: 256 distinct states checked, 896 states generated
+- **Result:** No errors found. SelfStabilization property verified. ✅
 
-## Key Properties
+## Planned Extension
 
-- **Legitimacy:** `Legitimate` — exactly one process is privileged
-- **Self-stabilization:** Starting from any state, the system eventually reaches a legitimate state (verified via `FairSpec` and liveness properties)
+Investigating how modifying process 0's action rule (e.g. incrementing by a different step size) affects self-stabilization, and what constraints on K are required to preserve correctness.
+
+## Reference
+
+Dijkstra, E.W. "Self-stabilization in spite of distributed control" (EWD391), 1973.
