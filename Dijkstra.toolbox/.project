@@ -20,5 +20,10 @@
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/Dijkstra.tla</locationURI>
 		</link>
+		<link>
+			<name>FiniteSetTheorems.tla</name>
+			<type>1</type>
+			<location>/Users/joshuayao/code/CE356/Final_Project/ce356-dijkstra-project/FiniteSetTheorems.tla</location>
+		</link>
 	</linkedResources>
 </projectDescription>
