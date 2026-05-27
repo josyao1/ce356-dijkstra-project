@@ -1,0 +1,5 @@
+> val it = (): unit
+val commit = fn: unit -> bool
+Loading theory "tlapm_e8cc92"
+Exception- Interrupt raised
+ML> 

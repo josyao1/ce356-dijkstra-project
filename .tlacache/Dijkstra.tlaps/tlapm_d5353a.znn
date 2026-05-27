@@ -1,0 +1,16 @@
+;; obligation #16
+$hyp "a_CONSTANTunde_yunde_a_in" (TLA.in a_CONSTANTunde_yunde_a (TLA.FuncSet (arith.intrange 0
+a_CONSTANTunde_Nunde_a) (arith.intrange 0 (arith.add a_CONSTANTunde_Kunde_a
+(arith.minus (TLA.fapply TLA.Succ 0))))))
+$hyp "v'224" (\/ (= (TLA.fapply a_CONSTANTunde_yunde_a 0)
+(TLA.fapply a_CONSTANTunde_yunde_a a_CONSTANTunde_Nunde_a))
+(TLA.bEx (arith.intrange (TLA.fapply TLA.Succ 0)
+a_CONSTANTunde_Nunde_a) ((a_CONSTANTunde_iunde_a) (-. (= (TLA.fapply a_CONSTANTunde_yunde_a a_CONSTANTunde_iunde_a)
+(TLA.fapply a_CONSTANTunde_yunde_a (arith.add a_CONSTANTunde_iunde_a
+(arith.minus (TLA.fapply TLA.Succ 0)))))))))
+$goal (TLA.bEx (arith.intrange 0
+a_CONSTANTunde_Nunde_a) ((a_CONSTANTunde_iunde_a) (TLA.cond (= a_CONSTANTunde_iunde_a
+0) (= (TLA.fapply a_CONSTANTunde_yunde_a 0)
+(TLA.fapply a_CONSTANTunde_yunde_a a_CONSTANTunde_Nunde_a)) (-. (= (TLA.fapply a_CONSTANTunde_yunde_a a_CONSTANTunde_iunde_a)
+(TLA.fapply a_CONSTANTunde_yunde_a (arith.add a_CONSTANTunde_iunde_a
+(arith.minus (TLA.fapply TLA.Succ 0)))))))))

@@ -1,5 +1,5 @@
 --------------------------- MODULE Dijkstra ---------------------------
-EXTENDS Integers, FiniteSetTheorems, TLAPS, NaturalsInduction
+EXTENDS Integers, FiniteSets, TLAPS, NaturalsInduction
 
 CONSTANTS N, K
 VARIABLES x
@@ -35,6 +35,7 @@ FairSpec == Spec /\ WF_x(Next)
 SelfStabilization == <>[]Legitimate
 
 (* --- PROOF BEGINS HERE --- *)
+LOCAL INSTANCE FiniteSetTheorems
 
 TypeOK == x \in [0..N -> 0..K-1]
 
@@ -117,8 +118,7 @@ LEMMA StateAtLeastOne ==
   BY <1>7, <1>8, FS_EmptySet
 <1>11. QED
   BY <1>9, <1>10, SMT DEF NumPrivState
-  
-  
+
 THEOREM AtLeastOnePrivilegedInvariant == Spec => []AtLeastOnePrivileged
 <1>1. Init => TypeOK /\ AtLeastOnePrivileged
   <2>1. Init => TypeOK
@@ -130,9 +130,7 @@ THEOREM AtLeastOnePrivilegedInvariant == Spec => []AtLeastOnePrivileged
       <4>2. NumPrivState(x) >= 1 BY <4>1, StateAtLeastOne
       <4>3. {i \in 0..N : Privileged(i)} = {i \in 0..N : PrivState(x, i)}
             BY DEF Privileged, Priv0, PrivI, PrivState
-      <4>4. Cardinality({i \in 0..N : Privileged(i)}) = Cardinality({i \in 0..N : PrivState(x, i)})
-            BY <4>3
-      <4>5. QED BY <4>2, <4>4 DEF AtLeastOnePrivileged, NumPrivileged, NumPrivState
+      <4>4. QED BY <4>2, <4>3 DEF AtLeastOnePrivileged, NumPrivileged, NumPrivState
     <3>2. QED BY <3>1
   <2>3. QED BY <2>1, <2>2
 <1>2. TypeOK /\ AtLeastOnePrivileged /\ [Next]_x => TypeOK' /\ AtLeastOnePrivileged'
@@ -145,9 +143,7 @@ THEOREM AtLeastOnePrivilegedInvariant == Spec => []AtLeastOnePrivileged
       <4>2. NumPrivState(x') >= 1 BY <4>1, StateAtLeastOne
       <4>3. {i \in 0..N : Privileged(i)'} = {i \in 0..N : PrivState(x', i)}
             BY DEF Privileged, Priv0, PrivI, PrivState
-      <4>4. Cardinality({i \in 0..N : Privileged(i)'}) = Cardinality({i \in 0..N : PrivState(x', i)})
-            BY <4>3
-      <4>5. QED BY <4>2, <4>4 DEF AtLeastOnePrivileged, NumPrivileged, NumPrivState
+      <4>4. QED BY <4>2, <4>3 DEF AtLeastOnePrivileged, NumPrivileged, NumPrivState
     <3>3. QED BY <3>1, <3>2
   <2>2. QED BY <2>1
 <1>3. QED

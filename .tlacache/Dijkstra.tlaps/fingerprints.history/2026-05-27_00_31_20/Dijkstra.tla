@@ -1,5 +1,5 @@
 --------------------------- MODULE Dijkstra ---------------------------
-EXTENDS Integers, FiniteSetTheorems, TLAPS, NaturalsInduction
+EXTENDS Integers, FiniteSets, TLAPS, NaturalsInduction
 
 CONSTANTS N, K
 VARIABLES x
@@ -35,6 +35,7 @@ FairSpec == Spec /\ WF_x(Next)
 SelfStabilization == <>[]Legitimate
 
 (* --- PROOF BEGINS HERE --- *)
+LOCAL INSTANCE FiniteSetTheorems
 
 TypeOK == x \in [0..N -> 0..K-1]
 
