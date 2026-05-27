@@ -14,7 +14,7 @@ Formal specification and verification of Dijkstra's self-stabilization algorithm
 
 - `Dijkstra.tla`: TLA+ specification of the algorithm
 - `Dijkstra.toolbox/`: TLA+ Toolbox project and TLC model configuration
-- `reports/`: Midterm and final reports
+- `reports/`: Various reports and documents related to findings
 
 ## TLC Verification Results (Base Spec)
 
